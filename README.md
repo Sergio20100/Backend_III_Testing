@@ -33,7 +33,7 @@ npm install
 Este comando inicia el servidor en modo desarrollo:
 
 ```bash
-npm start
+npm run dev
 ```
 
 ## Entrega N°1
