@@ -3,7 +3,7 @@ En el siguiente proyecto se pone en practica lo aprendido en el curso de corderh
 ## Características
 
 - **Express** para gestionar rutas y middleware.
-- **Handlebars** como motor de plantillas para renderizar vistas dinámicas.
+<!-- - **Handlebars** como motor de plantillas para renderizar vistas dinámicas. -->
 - Configuración para servir archivos estáticos desde la carpeta `public`.
 - Moncking API
 
