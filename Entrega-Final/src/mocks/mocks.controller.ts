@@ -7,9 +7,9 @@ import { UpdateMockDto } from './dto/update-mock.dto';
 export class MocksController {
   constructor(private readonly mocksService: MocksService) {}
 
-  @Post()
-  create(@Body() createMockDto: CreateMockDto) {
-    return this.mocksService.create(createMockDto);
+  @Post('generateData/:users/:pets')
+  create(@Param('users') users:string, @Param('pets') pets:string) {
+    return this.mocksService.generateData({users,pets});
   }
 
   @Get()

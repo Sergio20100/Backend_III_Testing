@@ -3,6 +3,7 @@ import { faker } from '@faker-js/faker';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { PetMockEntity, UserMockEntity } from 'src/mocks/entities/mock.entity';
 
 export class Utils {
   static async createHash(password: string): Promise<string> {
@@ -20,7 +21,7 @@ export class Utils {
   }
 
   static async generateUser(numOfUsers: number): Promise<any[]> {
-    const users = [];
+    const users:UserMockEntity[] = [];
     const roles = ['admin', 'user'];
 
     for (let i = 0; i < numOfUsers; i++) {
@@ -40,7 +41,7 @@ export class Utils {
   }
 
   static async generatePets(numOfPets: number): Promise<any[]> {
-    const pets = [];
+    const pets:PetMockEntity[] = [];
 
     for (let i = 0; i < numOfPets; i++) {
       pets.push({

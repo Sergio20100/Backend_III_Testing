@@ -1,10 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { CreateMockDto } from './dto/create-mock.dto';
 import { UpdateMockDto } from './dto/update-mock.dto';
-
+import { Utils } from 'src/utils/utils';
 @Injectable()
 export class MocksService {
-  create(createMockDto: CreateMockDto) {
+ async generateData(createMockDto: CreateMockDto) {
+    const numUsers = parseInt(createMockDto.users);
+    const numPets = parseInt(createMockDto.pets);
     return 'This action adds a new mock';
   }
 
