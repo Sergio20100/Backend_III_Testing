@@ -8,9 +8,13 @@ import { MocksModule } from './mocks/mocks.module';
 import { AdoptionsModule } from './adoptions/adoptions.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { WinstonModule } from 'nest-winston';
+import { winstonConfig } from './logger/winston-config';
 
 @Module({
-  imports: [UsersModule, 
+  imports: [
+            WinstonModule.forRoot(winstonConfig),
+            UsersModule, 
             PetsModule, 
             SessionsModule, 
             MocksModule, 
