@@ -1,6 +1,6 @@
 import * as bcrypt from 'bcrypt';
 import { faker } from '@faker-js/faker';
-import { join } from 'path';
+// import { join } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { PetMockEntity, UserMockEntity } from 'src/mocks/entities/mock.entity';

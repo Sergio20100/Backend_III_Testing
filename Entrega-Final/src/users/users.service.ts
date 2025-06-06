@@ -27,33 +27,40 @@ export class UsersService {
   findAll() {
     this.logger.log('Se solicita listar todos los usuarios')
     try {
-      return this.userModel.find().populate('pets._id').exec();
+      return this.userModel.find().populate('pets').exec();
     } catch (error) {
       this.logger.error('Error al listar los usuarios de la DB',error.stack);
       throw error
     }
   }
 
-  findOne(params:any) {
+  findOne(id:string) {
+    this.logger.log(`Se solicita busqueda del usuario con id ${id}`);
     try {
-      return this.userModel.findOne(params);
+      return this.userModel.findOne({_id:id});
     } catch (error) {
       this.logger.error('Error al buscar en la DB',error.stack)
       throw error;
     }
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
+  update(id: string, updateUserDto: UpdateUserDto) {
     this.logger.log(`Actualizacion del usuario con id ${id}`);
     try {
       return this.userModel.findByIdAndUpdate(id,{$set:updateUserDto})
     } catch (error) {
-      this.logger.error('Error al actualizar en la DB',error.stack);
+      this.logger.error('Error al actualizar usuario en la DB',error.stack);
       throw error;
     }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  remove(id: string) {
+    this.logger.log(`se solicita borrar el usuario con id ${id}`);
+    try {
+      return this.userModel.findByIdAndDelete({_id:id})
+    } catch (error) {
+      this.logger.error('Error al eliminar usuario en la DB',error.stack);
+      throw error;
+    }
   }
 }

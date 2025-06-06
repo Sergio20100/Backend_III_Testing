@@ -4,7 +4,7 @@ import { Response } from 'express';
 import { CreateMockDto } from './dto/create-mock.dto';
 import { UpdateMockDto } from './dto/update-mock.dto';
 
-@Controller()
+@Controller('api/mocks')
 export class MocksController {
   private readonly logger = new Logger(MocksController.name);
   

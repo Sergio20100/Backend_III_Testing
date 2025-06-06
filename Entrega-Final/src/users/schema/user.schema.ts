@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument,Types } from 'mongoose';
+import { Pet } from 'src/pets/pet.schema';
 
 
 export type UserDocument = HydratedDocument<User>
@@ -23,9 +24,9 @@ export class User {
     role: string;
 
     @Prop({
-        type: [{ _id: { type: mongoose.SchemaTypes.ObjectId, ref: 'Pets' } }],
+        type: [{type: mongoose.SchemaTypes.ObjectId, ref: 'Pet'  }],
         default:[]})
-    pets:{_id:Types.ObjectId }[];
+    pets:Types.ObjectId[];
 }
 
 

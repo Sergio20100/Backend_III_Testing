@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Date, HydratedDocument, ObjectId, Types } from "mongoose";
+import { User } from "src/users/schema/user.schema";
 
 
 
@@ -20,7 +21,7 @@ export class Pet{
     @Prop({default:false})
     adopted:Boolean;
     
-    @Prop({type:Types.ObjectId})
+    @Prop({type:Types.ObjectId, ref: 'User'})
     owner:Types.ObjectId;
     
     @Prop({type:String})
